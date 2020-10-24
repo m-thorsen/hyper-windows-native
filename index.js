@@ -85,14 +85,6 @@ exports.decorateConfig = config => {
             line-height: 27px;
         }
         .tabs_nav {
-            /*
-            position: relative;
-            top: 0;
-            left: 32px;
-            width: auto;
-            -webkit-app-region: no-drag;
-            right: 200px;
-            */
             top: 28px;
             margin: 0 -1px;
         }
