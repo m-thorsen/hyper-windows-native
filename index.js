@@ -133,6 +133,8 @@ exports.decorateConfig = config => {
 exports.decorateKeymaps = keymaps => {
     keymaps["pane:splitVertical"] = "ctrl+alt+r";
     keymaps["pane:splitHorizontal"] = "ctrl+alt+d";
+    keymaps["pane:prev"] = "ctrl+alt+left";
+    keymaps["pane:next"] = "ctrl+alt+right";
 
     return { ...keymaps };
 };
