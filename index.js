@@ -2,10 +2,29 @@ exports.decorateConfig = config => {
     return Object.assign({}, config, {
         backgroundColor: '#1C1C1C',
         foregroundColor: '#BDBDBD',
-        cursorColor: '#BDBDBD',
-        selectionColor: 'rgba(255, 255, 255, 0.2)',
+        cursorColor: 'rgba(255, 255, 255, 0.75)',
+        selectionColor: 'rgba(255, 255, 255, 0.25)',
         showHamburgerMenu: true,
+        cursorBlink: true,
         padding: '4px',
+        colors: {
+            black: '#000000',
+            red: '#cc0000',
+            green: '#4e9a06',
+            yellow: '#c4a000',
+            blue: '#3465a4',
+            magenta: '#75507b',
+            cyan: '#06989a',
+            white: '#E0E0E0',
+            lightBlack: '#616161',
+            lightRed: '#ef2929',
+            lightGreen: '#8ae234',
+            lightYellow: '#fce94f',
+            lightBlue: '#729fcf',
+            lightMagenta: '#ad7fa8',
+            lightCyan: '#34e2e2',
+            lightWhite: '#eeeeec',
+        },
         css: `
             svg {
                 shape-rendering: geometricPrecision !important;
