@@ -81,7 +81,7 @@ const schemes = {
 
 exports.decorateConfig = config => {
     const themeSettings = {
-        scheme: 'tango',
+        scheme: 'materia',
         tabSize: 32,
         ...config.windowsNative,
     };
