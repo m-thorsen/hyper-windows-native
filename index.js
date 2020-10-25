@@ -124,6 +124,7 @@ exports.decorateConfig = config => {
     config.cursorBlink = true;
     config.padding = '2px';
     config.colors = currentScheme.colors;
+    config.useConpty = true;
     config.css = `
         svg {
             shape-rendering: geometricPrecision !important;
