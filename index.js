@@ -80,19 +80,24 @@ const schemes = {
 }
 
 exports.decorateConfig = config => {
-    const scheme = schemes.materia;
-    const titleHeight = 29;
-    const tabHeight = 32;
+    const themeSettings = {
+        scheme: 'tango',
+        tabSize: 32,
+        ...config.windowsNative,
+    };
 
-    config.backgroundColor = scheme.backgroundColor;
-    config.foregroundColor = scheme.foregroundColor;
-    config.borderColor = scheme.titlebarBackground;
+    const currentScheme = schemes[themeSettings.scheme];
+    const titlebarSize = 29;
+
+    config.backgroundColor = currentScheme.backgroundColor;
+    config.foregroundColor = currentScheme.foregroundColor;
+    config.borderColor = currentScheme.titlebarBackground;
     config.cursorColor = 'rgba(255, 255, 255, 0.75)';
     config.selectionColor = 'rgba(255, 255, 255, 0.25)';
     config.showHamburgerMenu = true;
     config.cursorBlink = true;
     config.padding = '2px';
-    config.colors = scheme.colors;
+    config.colors = currentScheme.colors;
     config.css = `
         svg {
             shape-rendering: geometricPrecision !important;
@@ -107,13 +112,13 @@ exports.decorateConfig = config => {
             top: 0;
             left: 0;
             right: 0;
-            border-bottom: 0.1px solid ${scheme.uiBorderColor} !important;
+            border-bottom: 0.1px solid ${currentScheme.uiBorderColor} !important;
         }
         .header_windowHeader,
         .header_windowControls,
         .header_shape {
-            height: ${titleHeight}px;
-            line-height: ${titleHeight}px;
+            height: ${titlebarSize}px;
+            line-height: ${titlebarSize}px;
         }
         .header_shape {
             padding: 9px 17px;
@@ -139,43 +144,50 @@ exports.decorateConfig = config => {
         }
 
         .tabs_nav {
-            top: ${titleHeight}px;
+            top: ${titlebarSize}px;
             margin: 0 -1px;
         }
         .tabs_nav,
         .tabs_list,
         .tab_text {
-            height: ${tabHeight}px;
-            line-height: 27px;
+            max-height: ${themeSettings.tabSize}px;
+            height: ${themeSettings.tabSize}px;
+            line-height: ${themeSettings.tabSize}px;
         }
         .tab_tab {
             padding: 0;
-            border-color: ${scheme.uiBorderColor} !important;
+            border-color: ${currentScheme.uiBorderColor} !important;
             border-width: 0.5px;
-            border-top: 1px solid ${scheme.tabbarBackground} !important;
-            background: ${scheme.tabbarBackground};
+            border-top: 1px solid ${currentScheme.tabbarBackground} !important;
+            background: ${currentScheme.tabbarBackground};
         }
         .tab_tab.tab_active {
-            border-top: 2px solid ${scheme.uiAccentColor} !important;
+            border-top: 1.5px solid ${currentScheme.uiAccentColor} !important;
             margin-top: -1px;
             border-bottom: 0 !important;
-            background-color: ${config.backgroundColor};
+            background-color: ${currentScheme.backgroundColor};
         }
         .tab_tab .tab_icon {
             opacity: 0.25;
             transform: none;
             width: 16px;
             height: 16px;
-            margin-top: -4px !important;
+            top: 50%;
+            margin-top: 0 !important;
             margin-right: 2px;
+            transform: translateY(-50%);
         }
         .tab_tab .tab_icon svg {
             width: 8px;
             height: 8px;
         }
         .tab_tab .tab_textInner {
+            line-height: 1em;
+            height: 1.4em;
+            top: 50%;
             left: 8px;
             right: 32px;
+            transform: translateY(-50%);
             opacity: 0.67;
         }
         .tab_active .tab_textInner,
@@ -184,11 +196,11 @@ exports.decorateConfig = config => {
         }
 
         .terms_termsNotShifted {
-            margin-top: ${titleHeight}px;
+            margin-top: ${titlebarSize}px;
             animation: none;
         }
         .terms_termsShifted {
-            margin-top: ${titleHeight + tabHeight}px;
+            margin-top: ${titlebarSize + themeSettings.tabSize}px;
             animation: none;
         }
         .term_term {
@@ -204,6 +216,8 @@ exports.decorateConfig = config => {
 };
 
 exports.decorateKeymaps = keymaps => {
+    console.log('hei')
+
     keymaps["pane:splitVertical"] = "ctrl+alt+r";
     keymaps["pane:splitHorizontal"] = "ctrl+alt+d";
     keymaps["pane:prev"] = "ctrl+alt+left";
