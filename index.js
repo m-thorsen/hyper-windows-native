@@ -49,7 +49,6 @@ exports.decorateConfig = config => {
         .tab_tab {
             padding: 0;
             border-width: 0 0 1px;
-            background: ${config.borderColor || '#2C2C2C'};
         }
         .tab_tab.tab_active {
             border-bottom-color: #FAFAFA !important;
@@ -57,14 +56,14 @@ exports.decorateConfig = config => {
         .tab_tab .tab_icon {
             opacity: 0.25;
             transform: none;
-            width: 18px;
-            height: 18px;
-            margin-top: -5px !important;
+            width: 16px;
+            height: 16px;
+            margin-top: -4px !important;
             margin-right: 6px;
         }
         .tab_tab .tab_icon svg {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
         }
         .tab_tab .tab_textInner {
             left: 8px;
@@ -118,7 +117,7 @@ exports.decorateConfig = config => {
             width: 32px;
             padding: 9px;
         }
-        ${config.css || ''}
+        ${config.cxss || ''}
     `;
 
     return { ...config };
