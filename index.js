@@ -90,9 +90,11 @@ exports.decorateConfig = config => {
         }
         .terms_termsNotShifted {
             margin-top: 28px;
+            animation: none;
         }
         .terms_termsShifted {
             margin-top: 57px;
+            animation: none;
         }
         .header_shape {
             padding: 9px 17px;
