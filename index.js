@@ -77,6 +77,32 @@ const schemes = {
             lightWhite: "#f5f5f5",
         }
     },
+    campbell: {
+        titlebarBackground: "#1f1f1f",
+        tabbarBackground: "#1f1f1f",
+        uiBorderColor: '#1f1f1f',
+        uiAccentColor: '#0078d7',
+        backgroundColor: "#0C0C0C",
+        foregroundColor: "#CCCCCC",
+        colors: {
+            black: "#0C0C0C",
+            red: "#C50F1F",
+            green: "#13A10E",
+            yellow: "#C19C00",
+            blue: "#0037DA",
+            magenta: "#881798",
+            cyan: "#3A96DD",
+            white: "#CCCCCC",
+            lightBlack: "#767676",
+            lightRed: "#E74856",
+            lightGreen: "#16C60C",
+            lightYellow: "#F9F1A5",
+            lightBlue: "#3B78FF",
+            lightMagenta: "#B4009E",
+            lightCyan: "#61D6D6",
+            lightWhite: "#F2F2F2",
+        }
+    },
 }
 
 exports.decorateConfig = config => {
@@ -144,7 +170,7 @@ exports.decorateConfig = config => {
         }
 
         .tabs_nav {
-            top: ${titlebarSize}px;
+            top: ${titlebarSize - 1}px;
             margin: 0 -1px;
         }
         .tabs_nav,
@@ -162,7 +188,7 @@ exports.decorateConfig = config => {
             background: ${currentScheme.tabbarBackground};
         }
         .tab_tab.tab_active {
-            border-top: 1.5px solid ${currentScheme.uiAccentColor} !important;
+            border-top: 2px solid ${currentScheme.uiAccentColor} !important;
             margin-top: -1px;
             border-bottom: 0 !important;
             background-color: ${currentScheme.backgroundColor};
@@ -196,11 +222,11 @@ exports.decorateConfig = config => {
         }
 
         .terms_termsNotShifted {
-            margin-top: ${titlebarSize}px;
+            margin-top: ${titlebarSize - 1}px;
             animation: none;
         }
         .terms_termsShifted {
-            margin-top: ${titlebarSize + themeSettings.tabSize}px;
+            margin-top: ${titlebarSize + themeSettings.tabSize - 1}px;
             animation: none;
         }
         .term_term {
@@ -216,8 +242,6 @@ exports.decorateConfig = config => {
 };
 
 exports.decorateKeymaps = keymaps => {
-    console.log('hei')
-
     keymaps["pane:splitVertical"] = "ctrl+alt+r";
     keymaps["pane:splitHorizontal"] = "ctrl+alt+d";
     keymaps["pane:prev"] = "ctrl+alt+left";
